@@ -105,11 +105,11 @@ export default function Portfolio() {
 
           <div className="text-center mt-16">
             <p className="text-muted-foreground mb-6">
-              Want to see more? Get in touch for our full portfolio.
+              Have a project in mind? We'd love to hear from you.
             </p>
             <Button size="lg" asChild className="gap-2">
               <Link to="/contact">
-                Request Full Portfolio
+                Get in Touch
                 <ArrowRight size={18} />
               </Link>
             </Button>
