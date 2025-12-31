@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
+import brandImg from "@/assets/images/Branding.jpg";
 
 // Placeholder projects - will be replaced with user's images
 const projects = [
@@ -10,6 +11,7 @@ const projects = [
     title: "Brand Identity",
     category: "Branding",
     color: "from-primary/30 to-accent/30",
+    src: brandImg,
   },
   {
     id: 2,
@@ -71,34 +73,31 @@ export default function Portfolio() {
       <section className="py-20">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projects.map((project, index) => (
+            {projects.map((project) => (
               <div
                 key={project.id}
-                className="group relative aspect-[4/3] rounded-2xl overflow-hidden cursor-pointer"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className="group relative aspect-square rounded-2xl overflow-hidden bg-gradient-to-br"
               >
-                {/* Placeholder gradient background */}
-                <div
-                  className={`absolute inset-0 bg-gradient-to-br ${project.color}`}
-                />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-4xl font-bold text-foreground/20">
-                    {project.id}
-                  </span>
-                </div>
+                {/* IMAGE (sirf hover par show hogi) */}
+                {project.src && (
+                  <img
+                    src={project.src}
+                    alt={project.title}
+                    className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  />
+                )}
 
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-background/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-6">
+                {/* Gradient background (normal state) */}
+                <div
+                  className={`absolute inset-0 bg-gradient-to-br ${project.color} transition-opacity duration-300 group-hover:opacity-20`}
+                />
+
+                {/* TITLE + CATEGORY (hamesha visible) */}
+                <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4">
                   <span className="text-sm text-accent mb-2">
                     {project.category}
                   </span>
-                  <h3 className="text-xl font-bold mb-4">{project.title}</h3>
-                  <div className="w-10 h-10 rounded-full border border-foreground flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-colors">
-                    <ArrowUpRight
-                      size={18}
-                      className="group-hover:text-primary-foreground"
-                    />
-                  </div>
+                  <h3 className="text-xl font-bold">{project.title}</h3>
                 </div>
               </div>
             ))}

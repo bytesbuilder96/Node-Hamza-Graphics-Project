@@ -135,10 +135,26 @@ export default function Services() {
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {[
-              { step: "01", title: "Discovery", desc: "Understanding your goals and vision" },
-              { step: "02", title: "Strategy", desc: "Developing a creative roadmap" },
-              { step: "03", title: "Design", desc: "Bringing concepts to life" },
-              { step: "04", title: "Delivery", desc: "Polished final deliverables" },
+              {
+                step: "01",
+                title: "Discovery",
+                desc: "Understanding your goals and vision",
+              },
+              {
+                step: "02",
+                title: "Strategy",
+                desc: "Developing a creative roadmap",
+              },
+              {
+                step: "03",
+                title: "Design",
+                desc: "Bringing concepts to life",
+              },
+              {
+                step: "04",
+                title: "Delivery",
+                desc: "Polished final deliverables",
+              },
             ].map((item, index) => (
               <div key={item.step} className="relative text-center">
                 <div className="text-6xl font-bold text-primary/20 mb-4">

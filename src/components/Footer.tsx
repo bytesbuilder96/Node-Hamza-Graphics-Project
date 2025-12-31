@@ -75,10 +75,10 @@ export function Footer() {
               ))}
             </div>
             <a
-              href="mailto:hello@hamzagraphics.com"
+              href="mailto:mr.mhamza005@gmail.com"
               className="text-sm text-muted-foreground hover:text-primary transition-colors"
             >
-              hello@hamzagraphics.com
+              mr.mhamza005@gmail.com
             </a>
           </div>
         </div>

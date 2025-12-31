@@ -5,7 +5,16 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { Mail, Phone, MapPin, Send, Instagram, Twitter, Linkedin, Dribbble } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Send,
+  Instagram,
+  Twitter,
+  Linkedin,
+  Dribbble,
+} from "lucide-react";
 
 const socialLinks = [
   { icon: Instagram, href: "#", label: "Instagram" },
@@ -127,10 +136,10 @@ export default function Contact() {
                   <div>
                     <h3 className="font-semibold mb-1">Email</h3>
                     <a
-                      href="mailto:hello@hamzagraphics.com"
+                      href="mailto:mr.mhamza005@gmail.com"
                       className="text-muted-foreground hover:text-primary transition-colors"
                     >
-                      hello@hamzagraphics.com
+                      mr.mhamza005@gmail.com
                     </a>
                   </div>
                 </div>
@@ -144,7 +153,7 @@ export default function Contact() {
                       href="tel:+1234567890"
                       className="text-muted-foreground hover:text-primary transition-colors"
                     >
-                      +1 (234) 567-890
+                      +92 313 7128360
                     </a>
                   </div>
                 </div>
