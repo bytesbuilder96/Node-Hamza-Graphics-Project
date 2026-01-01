@@ -3,6 +3,7 @@ import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import brandImg from "@/assets/images/Branding.jpg";
+import mobileUiUx from "@/assets/images/MobileUIUX.jpg";
 
 // Placeholder projects - will be replaced with user's images
 const projects = [
@@ -18,6 +19,7 @@ const projects = [
     title: "Mobile App UI",
     category: "UI/UX Design",
     color: "from-accent/30 to-primary/20",
+    src: mobileUiUx,
   },
   {
     id: 3,

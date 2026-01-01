@@ -1,0 +1,29 @@
+import nodemailer from "nodemailer";
+
+const sendEmail = async ({ name, email, subject, message }) => {
+  const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS,
+    },
+  });
+
+  const mailOptions = {
+    from: `"Website Contact" <${process.env.EMAIL_USER}>`,
+    to: process.env.ADMIN_EMAIL,
+    replyTo: email,
+    subject: `New Contact Message: ${subject}`,
+    html: `
+      <h2>New Contact Form Submission</h2>
+      <p><strong>Name:</strong> ${name}</p>
+      <p><strong>Email:</strong> ${email}</p>
+      <p><strong>Subject:</strong> ${subject}</p>
+      <p><strong>Message:</strong><br/>${message}</p>
+    `,
+  };
+
+  await transporter.sendMail(mailOptions);
+};
+
+export { sendEmail };
