@@ -4,6 +4,36 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import brandImg from "@/assets/images/Branding.jpg";
 import mobileUiUx from "@/assets/images/MobileUIUX.jpg";
+import markiting from "@/assets/images/Marketing.jpg";
+import webRedesign from "@/assets/images/website.jpg";
+import animation from "@/assets/images/AnimationM.jpg";
+import productBranding from "@/assets/images/Product.jpg";
+// add portfolio import
+import work1 from "@/assets/images/portfolio/work1.jpg";
+import work2 from "@/assets/images/portfolio/work2.jpg";
+import work3 from "@/assets/images/portfolio/work3.jpg";
+import work4 from "@/assets/images/portfolio/work4.jpg";
+import work5 from "@/assets/images/portfolio/work5.jpg";
+import work6 from "@/assets/images/portfolio/work6.jpg";
+import work7 from "@/assets/images/portfolio/work7.jpg";
+import work8 from "@/assets/images/portfolio/work8.jpg";
+import work9 from "@/assets/images/portfolio/work9.jpg";
+import work10 from "@/assets/images/portfolio/work10.jfif";
+import work11 from "@/assets/images/portfolio/work11.jfif";
+// Placeholder projects - will be replaced with user's images
+const workGallery = [
+  work1,
+  work2,
+  work3,
+  work4,
+  work5,
+  work6,
+  work7,
+  work8,
+  work9,
+  work10,
+  work11,
+];
 
 // Placeholder projects - will be replaced with user's images
 const projects = [
@@ -26,24 +56,28 @@ const projects = [
     title: "Marketing Campaign",
     category: "Graphic Design",
     color: "from-primary/20 to-accent/40",
+    src: markiting,
   },
   {
     id: 4,
     title: "Website Redesign",
     category: "UI/UX Design",
     color: "from-accent/20 to-primary/30",
+    src: webRedesign,
   },
   {
     id: 5,
     title: "Motion Graphics",
     category: "Animation",
     color: "from-primary/40 to-accent/20",
+    src: animation,
   },
   {
     id: 6,
     title: "Product Packaging",
     category: "Branding",
     color: "from-accent/30 to-primary/40",
+    src: productBranding,
   },
 ];
 
@@ -74,13 +108,14 @@ export default function Portfolio() {
       {/* Portfolio Grid */}
       <section className="py-20">
         <div className="container mx-auto px-6">
+          {/* Portfolio Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {projects.map((project) => (
               <div
                 key={project.id}
                 className="group relative aspect-square rounded-2xl overflow-hidden bg-gradient-to-br"
               >
-                {/* IMAGE (sirf hover par show hogi) */}
+                {/* IMAGE (hover par show hogi) */}
                 {project.src && (
                   <img
                     src={project.src}
@@ -89,12 +124,12 @@ export default function Portfolio() {
                   />
                 )}
 
-                {/* Gradient background (normal state) */}
+                {/* Gradient background */}
                 <div
                   className={`absolute inset-0 bg-gradient-to-br ${project.color} transition-opacity duration-300 group-hover:opacity-20`}
                 />
 
-                {/* TITLE + CATEGORY (hamesha visible) */}
+                {/* Title + Category */}
                 <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4">
                   <span className="text-sm text-accent mb-2">
                     {project.category}
@@ -105,6 +140,7 @@ export default function Portfolio() {
             ))}
           </div>
 
+          {/* Get in Touch */}
           <div className="text-center mt-16">
             <p className="text-muted-foreground mb-6">
               Have a project in mind? We'd love to hear from you.
@@ -115,6 +151,28 @@ export default function Portfolio() {
                 <ArrowRight size={18} />
               </Link>
             </Button>
+          </div>
+
+          {/* 👇 WORK GALLERY (20+ IMAGES) */}
+          <div className="mt-24">
+            <h2 className="text-3xl font-bold text-center mb-12">
+              Our Recent Work
+            </h2>
+
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              {workGallery.map((img, index) => (
+                <div
+                  key={index}
+                  className="group relative aspect-square rounded-2xl overflow-hidden bg-muted"
+                >
+                  <img
+                    src={img}
+                    alt={`Work ${index + 1}`}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

@@ -34,7 +34,7 @@ export default function Contact() {
     const form = e.target as HTMLFormElement;
 
     const formData = {
-      name: (form.name as HTMLInputElement).value,
+      name: (form.name as unknown as HTMLInputElement).value,
       email: (form.email as HTMLInputElement).value,
       subject: (form.subject as HTMLInputElement).value,
       message: (form.message as HTMLTextAreaElement).value,
