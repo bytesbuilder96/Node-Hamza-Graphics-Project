@@ -9,6 +9,7 @@ import {
   ArrowRight,
   Check,
 } from "lucide-react";
+import servicesHero from "@/assets/images/services-hero.jpg";
 
 const services = [
   {
@@ -65,17 +66,32 @@ export default function Services() {
   return (
     <Layout>
       {/* Hero */}
-      <section className="pt-32 pb-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-accent/5 to-transparent" />
+      <section
+        className="pt-32 pb-20 relative overflow-hidden bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `url(${servicesHero})`,
+        }}
+      >
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-black/60" />
+
+        {/* Gradient Effect */}
+        <div className="absolute inset-0 bg-gradient-to-b from-accent/30 to-transparent" />
+
         <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-4xl">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-fade-up">
+          {/* 👉 CENTER ALIGN HERE */}
+          <div className="max-w-4xl mx-auto text-center">
+            <h1
+              className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-fade-up text-white"
+              style={{ animationDelay: "0.2s" }}
+            >
               Our
               <br />
-              <span className="text-gradient">Services</span>
+              <span className="text-accent">Services</span>
             </h1>
+
             <p
-              className="text-xl text-muted-foreground max-w-2xl animate-fade-up"
+              className="text-xl text-white/80 max-w-2xl mx-auto animate-fade-up"
               style={{ animationDelay: "0.1s" }}
             >
               Comprehensive design solutions to help your brand stand out and

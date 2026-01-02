@@ -5,6 +5,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
+import contactHero from "@/assets/images/contact-hero.jpg";
+
 import {
   Mail,
   Phone,
@@ -75,15 +77,26 @@ export default function Contact() {
   return (
     <Layout>
       {/* Hero */}
-      <section className="pt-32 pb-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-accent/5 to-transparent" />
+      <section
+        className="pt-32 pb-20 relative overflow-hidden bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `url(${contactHero})`,
+        }}
+      >
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-black/60" />
+
+        {/* Gradient */}
+        <div className="absolute inset-0 bg-gradient-to-b from-accent/30 to-transparent" />
+
         <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-4xl">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-white">
               Get in <br />
-              <span className="text-gradient">Touch</span>
+              <span className="text-accent">Touch</span>
             </h1>
-            <p className="text-xl text-muted-foreground max-w-2xl">
+
+            <p className="text-xl text-white/80 max-w-2xl mx-auto">
               Have a project in mind? We'd love to hear from you.
             </p>
           </div>

@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
+import portfolioHero from "@/assets/images/portfolio-hero.jpg";
+
 import brandImg from "@/assets/images/Branding.jpg";
 import mobileUiUx from "@/assets/images/MobileUIUX.jpg";
 import markiting from "@/assets/images/Marketing.jpg";
@@ -85,17 +87,31 @@ export default function Portfolio() {
   return (
     <Layout>
       {/* Hero */}
-      <section className="pt-32 pb-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent" />
+      <section
+        className="pt-32 pb-20 relative overflow-hidden bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `url(${portfolioHero})`,
+        }}
+      >
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-black/60" />
+
+        {/* Gradient */}
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/30 to-transparent" />
+
         <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-4xl">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-fade-up">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1
+              className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-fade-up text-white"
+              style={{ animationDelay: "0.2s" }}
+            >
               Our
               <br />
-              <span className="text-gradient">Portfolio</span>
+              <span className="text-accent">Portfolio</span>
             </h1>
+
             <p
-              className="text-xl text-muted-foreground max-w-2xl animate-fade-up"
+              className="text-xl text-white/80 max-w-2xl mx-auto animate-fade-up"
               style={{ animationDelay: "0.1s" }}
             >
               A showcase of our best work across branding, design, and

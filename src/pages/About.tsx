@@ -1,16 +1,20 @@
 import { Layout } from "@/components/Layout";
 import { Target, Eye, Zap, Heart } from "lucide-react";
+import philosophyImg from "@/assets/images/philosophy.jpg";
+import aboutHero from "@/assets/images/about-hero.jpg";
 
 const values = [
   {
     icon: Target,
     title: "Purpose-Driven",
-    description: "Every design serves a purpose. We create with intention and clarity.",
+    description:
+      "Every design serves a purpose. We create with intention and clarity.",
   },
   {
     icon: Eye,
     title: "Attention to Detail",
-    description: "The little things make the biggest difference. We obsess over every pixel.",
+    description:
+      "The little things make the biggest difference. We obsess over every pixel.",
   },
   {
     icon: Zap,
@@ -20,7 +24,8 @@ const values = [
   {
     icon: Heart,
     title: "Passion",
-    description: "We love what we do, and it shows in every project we deliver.",
+    description:
+      "We love what we do, and it shows in every project we deliver.",
   },
 ];
 
@@ -28,17 +33,31 @@ export default function About() {
   return (
     <Layout>
       {/* Hero */}
-      <section className="pt-32 pb-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent" />
+      <section
+        className="pt-32 pb-20 relative overflow-hidden bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `url(${aboutHero})`,
+        }}
+      >
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-black/60" />
+
+        {/* Soft Gradient */}
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/30 to-transparent" />
+
         <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-4xl">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-fade-up">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1
+              className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-6 animate-fade-up text-white"
+              style={{ animationDelay: "0.2s" }}
+            >
               About
               <br />
-              <span className="text-gradient">Hamza Graphics</span>
+              <span className="text-accent">Hamza Graphics</span>
             </h1>
+
             <p
-              className="text-xl text-muted-foreground max-w-2xl animate-fade-up"
+              className="text-xl text-white/80 max-w-2xl mx-auto animate-fade-up"
               style={{ animationDelay: "0.1s" }}
             >
               We're a creative agency dedicated to transforming brands through
@@ -52,9 +71,10 @@ export default function About() {
       <section className="py-20 bg-card">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
+            {/* TEXT */}
+            <div className="animate-fade-up">
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                Our Creative Philosophy
+                Our Creative <span className="text-accent">Philosophy</span>
               </h2>
               <div className="space-y-4 text-muted-foreground">
                 <p>
@@ -64,8 +84,8 @@ export default function About() {
                 </p>
                 <p>
                   Founded with a passion for visual storytelling, we've grown
-                  into a full-service creative agency that helps businesses stand
-                  out in an increasingly crowded digital landscape.
+                  into a full-service creative agency that helps businesses
+                  stand out in an increasingly crowded digital landscape.
                 </p>
                 <p>
                   Our approach combines strategic thinking with creative
@@ -74,11 +94,15 @@ export default function About() {
                 </p>
               </div>
             </div>
-            <div className="relative">
-              <div className="aspect-square rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-                <div className="text-8xl font-bold text-gradient">HG</div>
-              </div>
-              <div className="absolute -bottom-6 -right-6 w-32 h-32 rounded-2xl bg-accent/30 -z-10" />
+
+            {/* IMAGE */}
+            <div className="relative animate-fade-up">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl blur-2xl" />
+              <img
+                src={philosophyImg}
+                alt="Our Creative Philosophy"
+                className="relative z-10 rounded-2xl w-full h-full object-cover shadow-xl"
+              />
             </div>
           </div>
         </div>
@@ -101,7 +125,7 @@ export default function About() {
             {values.map((value, index) => (
               <div
                 key={value.title}
-                className="text-center p-6"
+                className="text-center p-6 rounded-2xl transition hover:-translate-y-1 hover:shadow-lg"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-6">
@@ -127,11 +151,16 @@ export default function About() {
               { number: "5+", label: "Years Experience" },
               { number: "100%", label: "Dedication" },
             ].map((stat) => (
-              <div key={stat.label} className="text-center">
+              <div
+                key={stat.label}
+                className="text-center transition hover:scale-105"
+              >
                 <div className="text-4xl md:text-5xl font-bold text-primary mb-2">
                   {stat.number}
                 </div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
+                <div className="text-sm text-muted-foreground">
+                  {stat.label}
+                </div>
               </div>
             ))}
           </div>
